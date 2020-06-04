@@ -38,11 +38,11 @@ export interface Login {
     password: string;
 }
 
-export interface IToken {
+export interface Token {
     token: string;
 }
 
-export async function login(payload: Login): Promise<IToken> {
+export async function login(payload: Login): Promise<Token> {
     try {
         const res = await axios.post(environment.backendUrl + "/v1/user/signin", payload);
         updateStoreToken(res.data.token)
@@ -80,7 +80,7 @@ export interface SignUpRequest {
     login: string;
 }
 
-export async function newUser(payload: SignUpRequest): Promise<IToken> {
+export async function newUser(payload: SignUpRequest): Promise<Token> {
     try {
         const res = await axios.post(environment.backendUrl + "/v1/user", payload);
         updateStoreToken(res.data.token)
@@ -91,12 +91,12 @@ export async function newUser(payload: SignUpRequest): Promise<IToken> {
     }
 }
 
-export interface IChangePassword {
+export interface ChangePassword {
     currentPassword: string;
     newPassword: string;
 }
 
-export async function changePassword(payload: IChangePassword): Promise<void> {
+export async function changePassword(payload: ChangePassword): Promise<void> {
     try {
         const res = await axios.post(environment.backendUrl + "/v1/user/password", payload);
         return Promise.resolve(res.data);
