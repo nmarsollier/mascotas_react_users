@@ -11,5 +11,9 @@ export {
   User,
   Token,
   SignUpRequest,
-  ChangePassword
+  ChangePassword,
 } from "./api/userApi";
+
+export { LoginUser } from "./components/LoginUser";
+export { ChangeUserPassword } from "./components/ChangeUserPassword";
+export { RegisterUser } from "./components/RegisterUser";

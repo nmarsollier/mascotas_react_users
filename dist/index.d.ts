@@ -1,8 +1,4 @@
-import * as ApiModule from "./api/userApi";
-import { changePassword, getCurrentToken, getCurrentUser, login, newUser, reloadCurrentUser } from "./api/userApi";
-export { getCurrentToken, getCurrentUser, login, newUser, changePassword, reloadCurrentUser };
-export declare type Login = ApiModule.Login;
-export declare type Token = ApiModule.IToken;
-export declare type User = ApiModule.User;
-export declare type SignUpRequest = ApiModule.SignUpRequest;
-export declare type ChangePassword = ApiModule.IChangePassword;
+export { changePassword, getCurrentToken, getCurrentUser, login, newUser, reloadCurrentUser, Login, User, Token, SignUpRequest, ChangePassword, } from "./api/userApi";
+export { LoginUser } from "./components/LoginUser";
+export { ChangeUserPassword } from "./components/ChangeUserPassword";
+export { RegisterUser } from "./components/RegisterUser";

@@ -5,10 +5,10 @@ export interface Login {
     login: string;
     password: string;
 }
-export interface IToken {
+export interface Token {
     token: string;
 }
-export declare function login(payload: Login): Promise<IToken>;
+export declare function login(payload: Login): Promise<Token>;
 export interface User {
     id: string;
     name: string;
@@ -21,9 +21,9 @@ export interface SignUpRequest {
     password: string;
     login: string;
 }
-export declare function newUser(payload: SignUpRequest): Promise<IToken>;
-export interface IChangePassword {
+export declare function newUser(payload: SignUpRequest): Promise<Token>;
+export interface ChangePassword {
     currentPassword: string;
     newPassword: string;
 }
-export declare function changePassword(payload: IChangePassword): Promise<void>;
+export declare function changePassword(payload: ChangePassword): Promise<void>;

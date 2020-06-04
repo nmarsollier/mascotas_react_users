@@ -2,9 +2,8 @@ import { DangerLabel, Form, FormAcceptButton, FormButton, FormButtonBar, FormInp
 import React, { useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { newUser } from "../api/userApi";
-import "../styles.css";
 
-export default function Register(props: RouteComponentProps) {
+export function RegisterUser(props: RouteComponentProps) {
     const [login, setLogin] = useState("")
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")

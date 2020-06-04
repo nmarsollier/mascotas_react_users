@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { useErrorHandler } from "mascotas_react_common";
 import { goHome } from "mascotas_react_common";
-import "../styles.css";
 import { login } from "../api/userApi";
 
-export default function Login(props: RouteComponentProps) {
+export function LoginUser(props: RouteComponentProps) {
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
 

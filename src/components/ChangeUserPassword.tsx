@@ -2,10 +2,8 @@ import { DangerLabel, Form, FormAcceptButton, FormButton, FormButtonBar, FormPas
 import React, { useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { changePassword } from "../api/userApi";
-import "../styles.css";
 
-
-export default function Password(props: RouteComponentProps) {
+export function ChangeUserPassword(props: RouteComponentProps) {
     const [currentPassword, setCurrentPassword] = useState("")
     const [newPassword, setNewPassword] = useState("")
     const [newPassword2, setNewPassword2] = useState("")
