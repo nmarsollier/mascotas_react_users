@@ -5,6 +5,7 @@ export {
   getCurrentToken,
   getCurrentUser,
   login,
+  logout,
   newUser,
   reloadCurrentUser,
   Login,

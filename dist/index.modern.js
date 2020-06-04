@@ -2917,5 +2917,5 @@ function RegisterUser(props) {
   }))));
 }
 
-export { ChangeUserPassword, LoginUser, RegisterUser, changePassword, getCurrentToken, getCurrentUser, login, newUser, reloadCurrentUser };
+export { ChangeUserPassword, LoginUser, RegisterUser, changePassword, getCurrentToken, getCurrentUser, login, logout, newUser, reloadCurrentUser };
 //# sourceMappingURL=index.modern.js.map

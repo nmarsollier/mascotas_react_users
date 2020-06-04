@@ -2925,6 +2925,7 @@ exports.changePassword = changePassword;
 exports.getCurrentToken = getCurrentToken;
 exports.getCurrentUser = getCurrentUser;
 exports.login = login;
+exports.logout = logout;
 exports.newUser = newUser;
 exports.reloadCurrentUser = reloadCurrentUser;
 //# sourceMappingURL=index.js.map
