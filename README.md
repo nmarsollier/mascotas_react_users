@@ -1,6 +1,8 @@
 # mascotas_react_users
 
-Modulo Usuarios para mascotas.
+Modulo Usuarios para toda la UI React de [mascotas modular](https://github.com/nmarsollier/mascotas_react_app).
+
+Ver proyecto original en [mascotas](https://github.com/nmarsollier/mascotas).
 
 ## Modo de uso
 
