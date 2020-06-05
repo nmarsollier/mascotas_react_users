@@ -189,7 +189,9 @@ function LoginUser(props) {
         return Promise.resolve(login({
           login: userName,
           password: password
-        })).then(function () {});
+        })).then(function () {
+          mascotas_react_common.goHome(props);
+        });
       }, function (error) {
         errorHandler.processRestValidations(error);
       });
@@ -267,9 +269,7 @@ function ChangeUserPassword(props) {
           currentPassword: currentPassword,
           newPassword: newPassword
         })).then(function () {
-          var _props$history;
-
-          (_props$history = props.history) === null || _props$history === void 0 ? void 0 : _props$history.push("/");
+          mascotas_react_common.goHome(props);
         });
       }, function (error) {
         errorHandler.processRestValidations(error);

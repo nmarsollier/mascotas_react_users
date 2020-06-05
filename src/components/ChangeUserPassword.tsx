@@ -32,7 +32,7 @@ export function ChangeUserPassword(props: RouteComponentProps) {
                 currentPassword,
                 newPassword
             });
-            props.history?.push("/");
+            goHome(props)
         } catch (error) {
             errorHandler.processRestValidations(error);
         }

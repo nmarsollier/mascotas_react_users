@@ -28,6 +28,7 @@ export function LoginUser(props: RouteComponentProps) {
                 login: userName,
                 password
             });
+            goHome(props)
         } catch (error) {
             errorHandler.processRestValidations(error);
         }
