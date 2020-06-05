@@ -20,6 +20,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-router-dom": "5.2.0",
+    "axios": "0.19.2",
     "mascotas_react_common": "git+https://github.com/nmarsollier/mascotas_react_common.git#master",
     "mascotas_react_store": "git+https://github.com/nmarsollier/mascotas_react_store.git#master"
   },
@@ -31,7 +32,7 @@
     "@types/react-router-dom": "5.1.5",
     "@types/mascotas_react_common": "git+https://github.com/nmarsollier/mascotas_react_common.git#master",
     "@types/mascotas_react_store": "git+https://github.com/nmarsollier/mascotas_react_store.git#master",
-    "axios": "0.19.2",
+    "@types/axios": "0.14.0",
     "microbundle-crl": "0.13.10",
     "npm-run-all": "4.1.5",
     "react-scripts": "3.4.1",

@@ -47,6 +47,7 @@ export async function login(payload: Login): Promise<Token> {
         const res = await axios.post(environment.backendUrl + "/v1/user/signin", payload);
         updateStoreToken(res.data.token)
         setCurrentToken(res.data.token);
+        reloadCurrentUser().then();
         return Promise.resolve(res.data);
     } catch (err) {
         return Promise.reject(err);
@@ -85,6 +86,7 @@ export async function newUser(payload: SignUpRequest): Promise<Token> {
         const res = await axios.post(environment.backendUrl + "/v1/user", payload);
         updateStoreToken(res.data.token)
         setCurrentToken(res.data.token);
+        reloadCurrentUser().then();
         return Promise.resolve(res.data);
     } catch (err) {
         return Promise.reject(err);
@@ -118,10 +120,9 @@ if (getCurrentToken()) {
 if (getCurrentToken() !== undefined) {
     const currentToken = getCurrentToken()
     const currentUser = getCurrentUser()
-    if (currentToken != undefined && currentUser != undefined) {
+    if (currentToken !== undefined && currentUser !== undefined) {
         updateStoreToken(currentToken)
         updateStoreUser(currentUser)
+        reloadCurrentUser().then();
     }
-
-    reloadCurrentUser().then();
 }
