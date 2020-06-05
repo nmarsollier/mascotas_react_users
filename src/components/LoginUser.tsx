@@ -28,7 +28,6 @@ export function LoginUser(props: RouteComponentProps) {
                 login: userName,
                 password
             });
-            props.history?.push("/");
         } catch (error) {
             errorHandler.processRestValidations(error);
         }

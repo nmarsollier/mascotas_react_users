@@ -1611,11 +1611,7 @@ function LoginUser(props) {
         return Promise.resolve(login({
           login: userName,
           password: password
-        })).then(function () {
-          var _props$history;
-
-          (_props$history = props.history) === null || _props$history === void 0 ? void 0 : _props$history.push("/");
-        });
+        })).then(function () {});
       }, function (error) {
         errorHandler.processRestValidations(error);
       });
