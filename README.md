@@ -10,7 +10,7 @@ Modulo users para mascotas.
 
 ## Cuando queramos usar la version local
 
-en modo desarrollador, ejecutamos en mascotas_react :
+en modo desarrollador, ejecutamos en mascotas_react_app :
 
 ```bash
     npm link ../mascotas_react_users
