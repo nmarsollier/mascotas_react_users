@@ -1,8 +1,7 @@
-import axios, { AxiosError } from "axios";
 import { environment } from "mascotas_react_common";
-import { cleanupStore, updateStoreToken, updateStoreUser } from "mascotas_react_store";
+import { cleanupStore, updateStoreToken, updateStoreUser, securedAxios } from "mascotas_react_store";
+import { AxiosError } from "axios";
 
-axios.defaults.headers.common["Content-Type"] = "application/json";
 
 export function getCurrentToken(): string | undefined {
     const result = localStorage.getItem("token");
@@ -11,7 +10,6 @@ export function getCurrentToken(): string | undefined {
 
 function setCurrentToken(token: string) {
     localStorage.setItem("token", token);
-    axios.defaults.headers.common.Authorization = "bearer " + token;
 }
 
 export function getCurrentUser(): User | undefined {
@@ -23,8 +21,8 @@ export async function logout(): Promise<void> {
     localStorage.removeItem("user");
 
     try {
-        await axios.get(environment.backendUrl + "/v1/user/signout");
-        axios.defaults.headers.common.Authorization = "";
+        await securedAxios().get(environment.backendUrl + "/v1/user/signout");
+
         return Promise.resolve();
     } catch (err) {
         return Promise.resolve();
@@ -44,7 +42,7 @@ export interface Token {
 
 export async function login(payload: Login): Promise<Token> {
     try {
-        const res = await axios.post(environment.backendUrl + "/v1/user/signin", payload);
+        const res = await securedAxios().post(environment.backendUrl + "/v1/user/signin", payload);
         updateStoreToken(res.data.token)
         setCurrentToken(res.data.token);
         reloadCurrentUser().then();
@@ -63,7 +61,7 @@ export interface User {
 
 export async function reloadCurrentUser(): Promise<User> {
     try {
-        const res = await axios.get(environment.backendUrl + "/v1/users/current");
+        const res = await securedAxios().get(environment.backendUrl + "/v1/users/current");
         localStorage.setItem("user", res.data);
         updateStoreUser(res.data);
         return Promise.resolve(res.data);
@@ -83,7 +81,7 @@ export interface SignUpRequest {
 
 export async function newUser(payload: SignUpRequest): Promise<Token> {
     try {
-        const res = await axios.post(environment.backendUrl + "/v1/user", payload);
+        const res = await securedAxios().post(environment.backendUrl + "/v1/user", payload);
         updateStoreToken(res.data.token)
         setCurrentToken(res.data.token);
         reloadCurrentUser().then();
@@ -100,7 +98,7 @@ export interface ChangePassword {
 
 export async function changePassword(payload: ChangePassword): Promise<void> {
     try {
-        const res = await axios.post(environment.backendUrl + "/v1/user/password", payload);
+        const res = await securedAxios().post(environment.backendUrl + "/v1/user/password", payload);
         return Promise.resolve(res.data);
     } catch (err) {
         if ((err as AxiosError) && err.response && err.response.status === 401) {
@@ -108,10 +106,6 @@ export async function changePassword(payload: ChangePassword): Promise<void> {
         }
         return Promise.reject(err);
     }
-}
-
-if (getCurrentToken()) {
-    axios.defaults.headers.common.Authorization = "bearer " + getCurrentToken();
 }
 
 /**
